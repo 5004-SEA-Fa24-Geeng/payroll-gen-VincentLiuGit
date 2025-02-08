@@ -8,7 +8,75 @@ This document is meant to provide a tool for you to demonstrate the design proce
 
 Place your class diagram below. Make sure you check the fil in the browser on github.com to make sure it is rendering correctly. If it is not, you will need to fix it. As a reminder, here is a link to tools that can help you create a class diagram: [Class Resources: Class Design Tools](https://github.com/CS5004-khoury-lionelle/Resources?tab=readme-ov-file#uml-design-tools)
 
+```mermaid
+---
+title: payroll gen UML
+---
+classDiagram
+    direction LR
+    Builder --> IEmployee : uses
+    Builder --> ITimeCard : uses
+    IEmployee --> IPayStub : uses
+    PayrollGenerator --> Arguments : has a
+    PayrollGenerator --> FileUtil : uses
+    PayrollGenerator --> IEmployee : has a
+    PayrollGenerator --> ITimeCard : has a    
+    PayrollGenerator --> IPayStub : has a  
+    class IEmployee {
+        <<interface>>
+        + getName() : String
+        + getID() : String
+        + getPayRate() : double
+        + getEmployeeType() : String
+        + getYTDEarnings() : double
+        + getYTDTaxesPaid() : double
+        + getPretaxDeductions() : double
+        + runPayroll(double hoursWorked) : IPayStub 
+    }
+    class IPayStub {
+        <<interface>>
+        + getPay() : double
+        + getTaxesPaid() : double
+        + toCSV() : String
+    }
+    class ITimeCard {
+        <<interface>>
+        + getEmployeeID() : String
+        + getHoursWorked() : double
+    }        
+    class PayrollGenerator {
+        - DEFAULT_EMPLOYEE_FILE : String
+        - DEFAULT_PAYROLL_FILE : String
+        - DEFAULT_TIME_CARD_FILE : String
+        - PayrollGenerator()
+        + main(String[] args) : void
+    }
+    class Arguments {
+        - employeeFile : String
+        - payrollFile : String
+        - timeCards : String
+        - Arguments()
+        + getEmployeeFile() : String
+        + getPayrollFile() : String
+        + getTimeCards() : String
+        + printHelp() : void
+        + process(String[] args) : Arguments
+    }    
+    class Builder {
+        - Builder()
+        + buildEmployeeFromCSV(String csv) : IEmployee
+        + buildTimeCardFromCSV(String csv) : ITimeCard
+    }
+    class FileUtil {
+        + EMPLOYEE_HEADER : String
+        + PAY_STUB_HEADER : String
+        - FileUtil()
+        + readFileToList(String file) : List<String>
+        + writeFile(String outFile, List<String> lines) : void
+        + writeFile(String outFile, List<String> lines, boolean backup) : void
+    }
 
+```
 
 
 
