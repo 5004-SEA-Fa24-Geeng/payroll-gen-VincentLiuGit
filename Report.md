@@ -5,33 +5,46 @@ This report helps you demonstrate your understanding of the concepts. You should
 ## Technical Questions
 
 1. What does CSV stand for? 
-   
+
+   A comma-separated values file.
 
 2. Why would you declare `List<IEmployee>` instead of `ArrayList<HourlyEmployee>`?
 
+    Casuse it's easier to iterate through one list than to iterate through two serparte lists, `ArrayList<HourlyEmployee>` and `ArrayList<SalaryEmployee>`. And once the data is sent to the Builder class, Builder will create different IEmployee objects based on the employee type, so it's not necessary to create two seperate lists.
+
 3. When you have one class referencing another object, such as storing that object as one of the attributes of the first class - what type of relationship is that called (between has-a and is-a)?
+
+    It's a has-a relationship.
 
 4. Can you provide an example of a has-a relationship in your code (if one exists)?
 
+    AbstractEmployee --> PayStub : has a
 
 5. Can you provide an example of an is-a relationship in your code (if one exists)?
 
+    AbstractEmployee <|-- HourlyEmployee : extends
+    AbstractEmployee <|-- SalaryEmployee : extends 
 
 6. What is the difference between an interface and an abstract class?
 
+    An interface is like a contract. It is used to specify what a class should do but no details in implementing methods..
+    An abstract class is like a manual. It not noly show you what a class should do, but also show you how to implemt methods.
 
 7. What is the advantage of using an interface over an abstract class?
 
+    Interface is more flexiable than Abstract class. Cause a concrete class can implements multiple interfaces, while it can only inherit one abstract class.
 
 8. Is the following code valid or not? `List<int> numbers = new ArrayList<int>();`, explain why or why not. If not, explain how you can fix it. 
 
+    It's not valid. Cause generic types cannot use primitive types. It should be rewritten as `List<Integer> numbers = new ArrayList<Integer>();`
 
 9. Which class/method is described as the "driver" for your application? 
 
-
+    The main() method in the PayrollGenerator class is the "driver".
 
 10. How do you create a temporary folder for JUnit Testing? 
 
+    First "import org.junit.jupiter.api.io.TempDir", and then use @TempDir annotation in your test code.
 
 ## Deeper Thinking 
 
