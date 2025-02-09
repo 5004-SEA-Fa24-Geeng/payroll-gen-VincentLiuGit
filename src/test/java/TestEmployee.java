@@ -47,8 +47,7 @@ public class TestEmployee {
     }    
 
     /**
-     * Tests to make sure the CSV string is being returned properly.
-     * Format of the CSV string is: "employee_name,net_pay,taxes,ytd_earnings,ytd_taxes_paid"
+     * Tests to make sure the pay rate is being returned properly.
      */
     @Test
     public void testGetPayRate() {
@@ -57,18 +56,16 @@ public class TestEmployee {
     }       
 
     /**
-     * Tests to make sure the CSV string is being returned properly.
-     * Format of the CSV string is: "employee_name,net_pay,taxes,ytd_earnings,ytd_taxes_paid"
+     * Tests to make sure the employee type is being returned properly.
      */
     @Test
     public void testGetEmployeeType() {
         assertEquals("HOURLY", TestHourlyEmployee.getEmployeeType());
         assertEquals("SALARY", TestSalaryEmployee.getEmployeeType());
     }       
-    
+
     /**
-     * Tests to make sure the CSV string is being returned properly.
-     * Format of the CSV string is: "employee_name,net_pay,taxes,ytd_earnings,ytd_taxes_paid"
+     * Tests to make sure the ytd earnings is being returned properly.
      */
     @Test
     public void testGetYTDEarnings() {
@@ -77,8 +74,7 @@ public class TestEmployee {
     }   
 
     /**
-     * Tests to make sure the CSV string is being returned properly.
-     * Format of the CSV string is: "employee_name,net_pay,taxes,ytd_earnings,ytd_taxes_paid"
+     * Tests to make sure the ytd taxes paid is being returned properly.
      */
     @Test
     public void testGetYTDTaxesPaid() {
@@ -87,8 +83,7 @@ public class TestEmployee {
     }   
 
     /**
-     * Tests to make sure the CSV string is being returned properly.
-     * Format of the CSV string is: "employee_name,net_pay,taxes,ytd_earnings,ytd_taxes_paid"
+     * Tests to make sure the pretax Deductions is being returned properly.
      */
     @Test
     public void testGetPretaxDeductions() {
@@ -97,8 +92,7 @@ public class TestEmployee {
     }   
 
     /**
-     * Tests to make sure the CSV string is being returned properly.
-     * Format of the CSV string is: "employee_name,net_pay,taxes,ytd_earnings,ytd_taxes_paid"
+     * Tests to make sure the number is being rounded properly.
      */
     @Test
     public void testRoundValue() {
@@ -106,8 +100,9 @@ public class TestEmployee {
     }  
 
     /**
-     * Tests to make sure the CSV string is being returned properly.
-     * Format of the CSV string is: "employee_name,net_pay,taxes,ytd_earnings,ytd_taxes_paid"
+     * Tests to make sure the pay roll is not null when hoursWorked >= 0.
+     * Tests to make sure the pay roll is null when hoursWorked < 0.
+     * Tests to make sure the methods in the pay roll of hourly employee and salary employee are performed properly.
      */
     @Test
     public void testRunPayroll() {
@@ -133,8 +128,7 @@ public class TestEmployee {
     }   
 
     /**
-     * Tests to make sure the CSV string is being returned properly.
-     * Format of the CSV string is: "employee_name,net_pay,taxes,ytd_earnings,ytd_taxes_paid"
+     * Tests to make sure the gross pay is being returned properly.
      */
     @Test
     public void testCalculateGrossPay() {
@@ -145,7 +139,7 @@ public class TestEmployee {
 
     /**
      * Tests to make sure the CSV string is being returned properly.
-     * Format of the CSV string is: "employee_name,net_pay,taxes,ytd_earnings,ytd_taxes_paid"
+     * Format of the CSV string is: "employee_type,name,ID,payRate,pretaxDeductions,YTDEarnings,YTDTaxesPaid"
      */
     @Test
     public void testToCSV() {

@@ -22,15 +22,30 @@ public final class Builder {
     private Builder() {
     }
 
+    /**
+     * Check if the arguments' value are positve numbers.
+     * @param val input value
+     * @param var variable name
+     * @throws IllegalArgumentException
+     */
+    public static double checkValue(String val, String var) {
+        try {
+            double returnVal = Double.parseDouble(val);
+            return returnVal;
+        } catch(NumberFormatException e) {
+            // handle the error
+            String errorMsg = String.format("%s cannot be a negative number.", var);
+            throw new NumberFormatException(errorMsg);
+        }
+    };
+
      /**
      * Builds an employee object from a CSV string.
-     * 
      * You may end up checking the type of employee (hourly or salary) by looking at the first
      * element of the CSV string. Then building an object specific to that type.
-     * 
      * @param csv the CSV string
      * @return Employee the employee object
-     * @throws IllegalLengthException 
+     * @throws IllegalLengthException,NumberFormatException
      */
     public static IEmployee buildEmployeeFromCSV(String csv){
 
@@ -55,37 +70,10 @@ public final class Builder {
         String StringYTDEarnings = parts[5];
         String StringYTDTaxesPaid = parts[6];
 
-        double payRate = 0;
-        try {
-            payRate = Double.parseDouble(StringPayRate);
-        } catch(NumberFormatException e) {
-            // handle the error
-            throw new NumberFormatException("payRate cannot be String.");
-        }
-
-        double pretaxDeductions = 0;
-        try {
-            pretaxDeductions = Double.parseDouble(StringPretaxDeductions);
-        } catch(NumberFormatException e) {
-            // handle the error
-            throw new NumberFormatException("pretaxDeductions cannot be String.");            
-        }
-
-        double YTDEarnings = 0;
-        try {
-            YTDEarnings = Double.parseDouble(StringYTDEarnings);
-        } catch(NumberFormatException e) {
-            // handle the error
-            throw new NumberFormatException("YTDEarnings cannot be String.");            
-        }
-
-        double YTDTaxesPaid = 0;
-        try {
-            YTDTaxesPaid = Double.parseDouble(StringYTDTaxesPaid);
-        } catch(NumberFormatException e) {
-            // handle the error
-            throw new NumberFormatException("YTDTaxesPaid cannot be String.");            
-        }
+        double payRate = checkValue(StringPayRate, "payRate");
+        double pretaxDeductions = checkValue(StringPretaxDeductions, "pretaxDeductions");
+        double YTDEarnings = checkValue(StringYTDEarnings, "YTDEarnings");
+        double YTDTaxesPaid = checkValue(StringYTDTaxesPaid, "YTDTaxesPaid");
 
         if (StringeType.equals("HOURLY")) {
             Employee = new HourlyEmployee(StringeType, StringName, StringId
@@ -101,9 +89,9 @@ public final class Builder {
 
    /**
      * Converts a TimeCard from a CSV String.
-     * 
      * @param csv csv string
      * @return a TimeCard object
+     * @throws IllegalLengthException,NumberFormatException
      */
     public static ITimeCard buildTimeCardFromCSV(String csv) {
 

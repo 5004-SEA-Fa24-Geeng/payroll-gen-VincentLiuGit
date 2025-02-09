@@ -18,7 +18,7 @@ public class TestBuilder {
 
 
     /**
-     * Executed before every tests, resets the values of the HourlyEmployee and SalaryEmployee objects.
+     * Executed before every tests, resets the values of the Builder objects.
      */
     @BeforeEach
     public void setUp() {
@@ -27,8 +27,7 @@ public class TestBuilder {
     }
 
     /**
-     * Tests to make sure the CSV string is being returned properly.
-     * Format of the CSV string is: "employee_name,net_pay,taxes,ytd_earnings,ytd_taxes_paid"
+     * Tests to make sure the employee type in Employee is being returned properly.
      */
     @Test
     public void testGetEmployeeType() {
@@ -36,7 +35,7 @@ public class TestBuilder {
     }  
 
     /**
-     * Tests to make sure the employee name is being returned properly.
+     * Tests to make sure the employee name in Employee is being returned properly.
      */
     @Test
     public void testGetName() {
@@ -44,7 +43,7 @@ public class TestBuilder {
     }
 
     /**
-     * Tests to make sure the employee id is being returned properly.
+     * Tests to make sure the employee id in Employee is being returned properly.
      */
     @Test
     public void testGetID() {
@@ -52,8 +51,7 @@ public class TestBuilder {
     }    
 
     /**
-     * Tests to make sure the CSV string is being returned properly.
-     * Format of the CSV string is: "employee_name,net_pay,taxes,ytd_earnings,ytd_taxes_paid"
+     * Tests to make sure the pay rate in Employee is being returned properly.
      */
     @Test
     public void testGetPayRate() {
@@ -61,8 +59,7 @@ public class TestBuilder {
     }            
     
     /**
-     * Tests to make sure the CSV string is being returned properly.
-     * Format of the CSV string is: "employee_name,net_pay,taxes,ytd_earnings,ytd_taxes_paid"
+     * Tests to make sure the ytd earnings in Employee is being returned properly.
      */
     @Test
     public void testGetYTDEarnings() {
@@ -70,8 +67,7 @@ public class TestBuilder {
     }   
 
     /**
-     * Tests to make sure the CSV string is being returned properly.
-     * Format of the CSV string is: "employee_name,net_pay,taxes,ytd_earnings,ytd_taxes_paid"
+     * Tests to make sure the ytd taxes paid in Employee is being returned properly.
      */
     @Test
     public void testGetYTDTaxesPaid() {
@@ -79,8 +75,15 @@ public class TestBuilder {
     }   
 
     /**
-     * Tests to make sure the CSV string is being returned properly.
-     * Format of the CSV string is: "employee_name,net_pay,taxes,ytd_earnings,ytd_taxes_paid"
+     * Tests to make sure the pretax Deductions is being returned properly.
+     */
+    @Test
+    public void testGetPretaxDeductions() {
+        assertEquals(0.00, Employee.getPretaxDeductions());
+    }   
+
+    /**
+     * Tests to make sure the pay roll in Employee is not null.
      */
     @Test
     public void testRunPayroll() {
@@ -89,8 +92,8 @@ public class TestBuilder {
     }   
 
     /**
-     * Tests to make sure the CSV string is being returned properly.
-     * Format of the CSV string is: "employee_name,net_pay,taxes,ytd_earnings,ytd_taxes_paid"
+     * Tests to make sure the CSV string in Employee is being returned properly.
+     * Format of the CSV string is: "employee_type,name,ID,payRate,pretaxDeductions,YTDEarnings,YTDTaxesPaid"
      */
     @Test
     public void testToCSV() {
@@ -98,8 +101,7 @@ public class TestBuilder {
     }   
 
     /**
-     * Tests to make sure the CSV string is being returned properly.
-     * Format of the CSV string is: "employee_name,net_pay,taxes,ytd_earnings,ytd_taxes_paid"
+     * Tests to make sure the employee id in TimeCard is being returned properly.
      */
     @Test
     public void testGetEmployeeID() {
@@ -107,12 +109,11 @@ public class TestBuilder {
     }   
 
     /**
-     * Tests to make sure the CSV string is being returned properly.
-     * Format of the CSV string is: "employee_name,net_pay,taxes,ytd_earnings,ytd_taxes_paid"
+     * Tests to make sure the hours worked in TimeCard is being returned properly.
      */
     @Test
     public void testGetHoursWorked() {
-        assertEquals("45", TimeCard.getHoursWorked());
+        assertEquals(45.0, TimeCard.getHoursWorked());
     }   
 
 

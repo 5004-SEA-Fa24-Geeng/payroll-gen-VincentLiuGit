@@ -3,7 +3,7 @@ package student;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-public class HourlyEmployee extends AbstractEmployeePayroll{
+public class HourlyEmployee extends AbstractEmployee{
 
     public HourlyEmployee(String employee_type, String employee_name, String employee_id, double pay_rate
                         , double ytd_earnings, double ytd_taxes_paid, double pretax_deductions) {

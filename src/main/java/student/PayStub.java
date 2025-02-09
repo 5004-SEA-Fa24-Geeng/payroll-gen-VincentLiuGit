@@ -10,6 +10,14 @@ public class PayStub implements IPayStub {
     private double newYtdTaxesPaid;
 
 
+    /**
+     * create a PayStub object.
+     * @param employee employee object
+     * @param netPay net pay = grossPay - pretax_deductions - taxes
+     * @param taxes taxes = (grossPay - pretax_deductions) * totalPercentage
+     * @param newYtdEarnings new Ytd Earnings = ytd_earnings + netPay
+     * @param newYtdTaxesPaid new Ytd TaxesPaid = ytd_taxes_paid  + taxes
+     */
     public PayStub(IEmployee employee, double netPay, double taxes
                     , double newYtdEarnings, double newYtdTaxesPaid) {
         this.employee = employee;
@@ -21,7 +29,6 @@ public class PayStub implements IPayStub {
 
     /**
      * Gets the pay for the current pay period.
-     * 
      * @return the pay for the current pay period
      */    
     public double getPay() {
@@ -30,7 +37,6 @@ public class PayStub implements IPayStub {
 
     /**
      * Gets the taxes paid for the current pay period.
-     * 
      * @return the taxes paid for the current pay period
      */    
     public double getTaxesPaid() {  
@@ -39,7 +45,6 @@ public class PayStub implements IPayStub {
 
     /**
      * Gets the new YtdEarnings.
-     * 
      * @return the new YtdEarnings
      */    
     public double getNewYtdEarnings() {  
@@ -48,7 +53,6 @@ public class PayStub implements IPayStub {
 
     /**
      * Gets the new YtdTaxesPaid.
-     * 
      * @return the new YtdTaxesPaid
      */    
     public double getNewYtdTaxesPaid() {  
@@ -57,9 +61,7 @@ public class PayStub implements IPayStub {
 
     /**
      * Converts the PayStub object to a CSV string.
-     * 
      * Format of the CSV string is: "employee_name,net_pay,taxes,ytd_earnings,ytd_taxes_paid"
-     * 
      * @return the CSV string
      */    
     public String toCSV() {
