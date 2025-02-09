@@ -5,8 +5,8 @@ package student;
  * Remind user that the length of csv String line should be the same number as the column number.
  */
 
-class IllegalLengthException extends Exception{
-    public IllegalLengthException(String errorMessage){
+class IllegalLengthException extends Exception {
+    IllegalLengthException(String errorMessage) {
         super(errorMessage);
     }
 }
@@ -26,13 +26,14 @@ public final class Builder {
      * Check if the arguments' value are positve numbers.
      * @param val input value
      * @param var variable name
+     * @return double value 
      * @throws IllegalArgumentException
      */
     public static double checkValue(String val, String var) {
         try {
             double returnVal = Double.parseDouble(val);
             return returnVal;
-        } catch(NumberFormatException e) {
+        } catch (NumberFormatException e) {
             // handle the error
             String errorMsg = String.format("%s cannot be a negative number.", var);
             throw new NumberFormatException(errorMsg);
@@ -47,9 +48,9 @@ public final class Builder {
      * @return Employee the employee object
      * @throws IllegalLengthException,NumberFormatException
      */
-    public static IEmployee buildEmployeeFromCSV(String csv){
+    public static IEmployee buildEmployeeFromCSV(String csv) {
 
-        IEmployee Employee = null;        
+        IEmployee employee = null;        
         int columnNum = 7;
         String[] parts = csv.split(",");
 
@@ -62,28 +63,28 @@ public final class Builder {
             System.out.println("Caught Exception: " + e.getMessage());
         }
 
-        String StringeType = parts[0];
-        String StringName = parts[1];
-        String StringId = parts[2];
-        String StringPayRate = parts[3];        
-        String StringPretaxDeductions = parts[4];
-        String StringYTDEarnings = parts[5];
-        String StringYTDTaxesPaid = parts[6];
+        String stringeType = parts[0];
+        String stringName = parts[1];
+        String stringId = parts[2];
+        String stringPayRate = parts[3];        
+        String stringPretaxDeductions = parts[4];
+        String stringYTDEarnings = parts[5];
+        String stringYTDTaxesPaid = parts[6];
 
-        double payRate = checkValue(StringPayRate, "payRate");
-        double pretaxDeductions = checkValue(StringPretaxDeductions, "pretaxDeductions");
-        double YTDEarnings = checkValue(StringYTDEarnings, "YTDEarnings");
-        double YTDTaxesPaid = checkValue(StringYTDTaxesPaid, "YTDTaxesPaid");
+        double payRate = checkValue(stringPayRate, "payRate");
+        double pretaxDeductions = checkValue(stringPretaxDeductions, "pretaxDeductions");
+        double YTDEarnings = checkValue(stringYTDEarnings, "YTDEarnings");
+        double YTDTaxesPaid = checkValue(stringYTDTaxesPaid, "YTDTaxesPaid");
 
-        if (StringeType.equals("HOURLY")) {
-            Employee = new HourlyEmployee(StringName, StringId
-                                        , payRate, YTDEarnings, YTDTaxesPaid, pretaxDeductions);
-        } else if (StringeType.equals("SALARY")) {
-            Employee = new SalaryEmployee(StringName, StringId
-                                        , payRate, YTDEarnings, YTDTaxesPaid, pretaxDeductions);
+        if (stringeType.equals("HOURLY")) {
+            employee = new HourlyEmployee(stringName,stringId
+                                        ,payRate,YTDEarnings,YTDTaxesPaid,pretaxDeductions);
+        } else if (stringeType.equals("SALARY")) {
+            employee = new SalaryEmployee(stringName,stringId
+                                        ,payRate,YTDEarnings,YTDTaxesPaid,pretaxDeductions);
         }
 
-        return Employee;
+        return employee;
     }
 
 
@@ -95,7 +96,7 @@ public final class Builder {
      */
     public static ITimeCard buildTimeCardFromCSV(String csv) {
 
-        ITimeCard TimeCard = null;        
+        ITimeCard timeCard = null;        
         int columnNum = 2;
         String[] parts = csv.split(",");
 
@@ -108,19 +109,19 @@ public final class Builder {
             System.out.println("Caught Exception: " + e.getMessage());
         }
 
-        String StringeId = parts[0];
-        String StringHoursWorked = parts[1];   
+        String stringeId = parts[0];
+        String stringHoursWorked = parts[1];   
 
         double hoursWorked = 0;
         try {
-            hoursWorked = Double.parseDouble(StringHoursWorked);
+            hoursWorked = Double.parseDouble(stringHoursWorked);
         } catch(NumberFormatException e) {
             // handle the error
             throw new NumberFormatException("hoursWorked cannot be String.");            
         }
         
-        TimeCard = new TimeCard(StringeId, hoursWorked);
+        timeCard = new TimeCard(stringeId, hoursWorked);
     
-        return TimeCard;
+        return timeCard;
     }
 }

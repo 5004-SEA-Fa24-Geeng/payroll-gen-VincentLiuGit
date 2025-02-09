@@ -14,8 +14,6 @@ public class TimeCard implements ITimeCard{
 
         // check String inputs.
         checkStringValue(employee_id, "Employee id");
-        // check double inputs.
-        checkValue(hours_worked, "Hours worked");
         this.employee_id = employee_id;
         this.hours_worked = hours_worked;
     } 
@@ -29,20 +27,6 @@ public class TimeCard implements ITimeCard{
     public void checkStringValue(String val, String var) {
         if (val == null) {
             String errorMsg = String.format("%s cannot be null.", var);
-            throw new IllegalArgumentException(errorMsg);
-        }
-    };
-
-
-    /**
-     * Check if the arguments' value are positve numbers.
-     * @param val input value
-     * @param var variable name
-     * @throws IllegalArgumentException
-     */
-    public void checkValue(double val, String var) {
-        if (val < 0) {
-            String errorMsg = String.format("%s cannot be a negative number.", var);
             throw new IllegalArgumentException(errorMsg);
         }
     };

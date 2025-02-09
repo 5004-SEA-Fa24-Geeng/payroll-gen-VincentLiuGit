@@ -3,45 +3,44 @@ package student;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-public abstract class AbstractEmployee implements IEmployee{
-
-    protected TypeOfEmployee employee_type;
-    protected String employee_name;
-    protected String employee_id;
-    protected double pay_rate;
-    protected double ytd_earnings;
-    protected double ytd_taxes_paid;
-    protected double pretax_deductions;
+public abstract class AbstractEmployee implements IEmployee {
+    private TypeOfEmployee employeeType;
+    private String employeeName;
+    private String employeeId;
+    private double payRate;
+    private double ytdEarnings;
+    private double ytdTaxesPaid;
+    private double pretaxDeductions;
 
     /**
      * Create an employee object.
-     * @param employee_type employee type
-     * @param employee_name employee name
-     * @param employee_id employee id
-     * @param pay_rate pay rate
-     * @param ytd_earnings ytd earnings
-     * @param ytd_taxes_paid ytd taxes paid
-     * @param pretax_deductions pretax deductions
+     * @param employeeType employee type
+     * @param employeeName employee name
+     * @param employeeId employee id
+     * @param payRate pay rate
+     * @param ytdEarnings ytd earnings
+     * @param ytdTaxesPaid ytd taxes paid
+     * @param pretaxDeductions pretax deductions
      */
-    public AbstractEmployee(TypeOfEmployee employee_type, String employee_name, String employee_id, double pay_rate
-                        , double ytd_earnings, double ytd_taxes_paid, double pretax_deductions) {
+    public AbstractEmployee(TypeOfEmployee employeeType,String employeeName,String employeeId,double payRate
+                        ,double ytdEarnings,double ytdTaxesPaid,double pretaxDeductions) {
 
         // check String inputs.
-        checkStringValue(employee_name, "Employee name");
-        checkStringValue(employee_id, "Employee id");
+        checkStringValue(employeeName, "Employee name");
+        checkStringValue(employeeId, "Employee id");
         // check double inputs.
-        checkValue(pay_rate, "Pay rate");
-        checkValue(ytd_earnings, "YTD earnings");
-        checkValue(ytd_taxes_paid, "YTD taxes paid");
-        checkValue(pretax_deductions, "Pretax deductions");
+        checkValue(payRate, "Pay rate");
+        checkValue(ytdEarnings, "YTD earnings");
+        checkValue(ytdTaxesPaid, "YTD taxes paid");
+        checkValue(pretaxDeductions, "Pretax deductions");
 
-        this.employee_type = employee_type;
-        this.employee_name = employee_name;
-        this.employee_id = employee_id;
-        this.pay_rate = pay_rate;
-        this.ytd_earnings = ytd_earnings;
-        this.ytd_taxes_paid = ytd_taxes_paid;
-        this.pretax_deductions = pretax_deductions;
+        this.employeeType = employeeType;
+        this.employeeName = employeeName;
+        this.employeeId = employeeId;
+        this.payRate = payRate;
+        this.ytdEarnings = ytdEarnings;
+        this.ytdTaxesPaid = ytdTaxesPaid;
+        this.pretaxDeductions = pretaxDeductions;
     }
 
 
@@ -76,7 +75,7 @@ public abstract class AbstractEmployee implements IEmployee{
      * @return the name of the employee
      */
     public String getName() {
-        return this.employee_name;
+        return this.employeeName;
     };
 
     /**
@@ -84,7 +83,7 @@ public abstract class AbstractEmployee implements IEmployee{
      * @return the ID of the employee
      */
     public String getID() {
-        return this.employee_id;
+        return this.employeeId;
     };
 
     /**
@@ -92,7 +91,7 @@ public abstract class AbstractEmployee implements IEmployee{
      * @return the pay rate of the employee
      */
     public double getPayRate() {
-        return this.pay_rate;
+        return this.payRate;
     };
 
 
@@ -104,7 +103,7 @@ public abstract class AbstractEmployee implements IEmployee{
      * @return the type of the employee as a string
      */
     public String getEmployeeType() {
-        return this.employee_type.name();
+        return this.employeeType.name();
     };
 
     /**
@@ -112,7 +111,7 @@ public abstract class AbstractEmployee implements IEmployee{
      * @return the YTD earnings of the employee
      */
     public double getYTDEarnings() {
-        return this.ytd_earnings;
+        return this.ytdEarnings;
     };
 
     /**
@@ -120,7 +119,7 @@ public abstract class AbstractEmployee implements IEmployee{
      * @return the YTD taxes paid by the employee
      */
     public double getYTDTaxesPaid() {
-        return this.ytd_taxes_paid;
+        return this.ytdTaxesPaid;
     };
 
     /**
@@ -130,7 +129,7 @@ public abstract class AbstractEmployee implements IEmployee{
      * @return the pretax deductions for the employee
      */
     public double getPretaxDeductions() {
-        return this.pretax_deductions;
+        return this.pretaxDeductions;
     };
 
     /**
@@ -180,14 +179,14 @@ public abstract class AbstractEmployee implements IEmployee{
         double grossPay = this.calculateGrossPay(hoursWorked);
 
         double totalPercentage = 0.2265;
-        double taxes = (grossPay - this.pretax_deductions) * totalPercentage;
+        double taxes = (grossPay - this.pretaxDeductions) * totalPercentage;
         taxes = roundValue(taxes);     
 
-        double netPay = grossPay - this.pretax_deductions - taxes;
+        double netPay = grossPay - this.pretaxDeductions - taxes;
         netPay = roundValue(netPay);    
 
-        this.ytd_earnings = roundValue(this.ytd_earnings + netPay);    
-        this.ytd_taxes_paid = roundValue(this.ytd_taxes_paid + taxes);  
+        this.ytdEarnings = roundValue(this.ytdEarnings + netPay);    
+        this.ytdTaxesPaid = roundValue(this.ytdTaxesPaid + taxes);  
 
         PayStub PayStub = new PayStub(this, netPay, taxes);
         return PayStub;
@@ -204,9 +203,9 @@ public abstract class AbstractEmployee implements IEmployee{
     public String toCSV() {
         String csvString;
         csvString = String.format("%s,%s,%s,%.2f,%.2f,%.2f,%.2f"
-                                , this.employee_type, this.employee_name
-                                , this.employee_id, this.pay_rate
-                                , this.pretax_deductions, this.ytd_earnings, this.ytd_taxes_paid);
+                                , this.employeeType, this.employeeName
+                                , this.employeeId, this.payRate
+                                , this.pretaxDeductions, this.ytdEarnings, this.ytdTaxesPaid);
         return csvString;
     };    
     
