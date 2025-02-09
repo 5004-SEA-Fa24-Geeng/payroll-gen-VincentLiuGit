@@ -73,15 +73,13 @@ public final class Builder {
 
         double payRate = checkValue(stringPayRate, "payRate");
         double pretaxDeductions = checkValue(stringPretaxDeductions, "pretaxDeductions");
-        double YTDEarnings = checkValue(stringYTDEarnings, "YTDEarnings");
-        double YTDTaxesPaid = checkValue(stringYTDTaxesPaid, "YTDTaxesPaid");
+        double yTDEarnings = checkValue(stringYTDEarnings, "YTDEarnings");
+        double yTDTaxesPaid = checkValue(stringYTDTaxesPaid, "YTDTaxesPaid");
 
         if (stringeType.equals("HOURLY")) {
-            employee = new HourlyEmployee(stringName,stringId
-                                        ,payRate,YTDEarnings,YTDTaxesPaid,pretaxDeductions);
+            employee = new HourlyEmployee(stringName,stringId,payRate,yTDEarnings,yTDTaxesPaid,pretaxDeductions);
         } else if (stringeType.equals("SALARY")) {
-            employee = new SalaryEmployee(stringName,stringId
-                                        ,payRate,YTDEarnings,YTDTaxesPaid,pretaxDeductions);
+            employee = new SalaryEmployee(stringName,stringId,payRate,yTDEarnings,yTDTaxesPaid,pretaxDeductions);
         }
 
         return employee;
@@ -115,7 +113,7 @@ public final class Builder {
         double hoursWorked = 0;
         try {
             hoursWorked = Double.parseDouble(stringHoursWorked);
-        } catch(NumberFormatException e) {
+        } catch (NumberFormatException e) {
             // handle the error
             throw new NumberFormatException("hoursWorked cannot be String.");            
         }

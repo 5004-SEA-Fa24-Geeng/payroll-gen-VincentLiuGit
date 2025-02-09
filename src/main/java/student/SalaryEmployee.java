@@ -3,10 +3,18 @@ package student;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-public class SalaryEmployee extends AbstractEmployee{
-
-    public SalaryEmployee(String employeeName, String employeeId, double payRate
-                        , double ytdEarnings, double ytdTaxesPaid, double pretaxDeductions) {
+public class SalaryEmployee extends AbstractEmployee {
+    /**
+     * create a SalaryEmployee object.
+     * @param employeeName employeeName
+     * @param employeeId employeeId
+     * @param payRate payRate
+     * @param ytdEarnings ytdEarnings
+     * @param ytdTaxesPaid ytdTaxesPaid
+     * @param pretaxDeductions pretaxDeductions
+     */
+    public SalaryEmployee(String employeeName,String employeeId,double payRate
+                        ,double ytdEarnings,double ytdTaxesPaid,double pretaxDeductions) {
         super(TypeOfEmployee.SALARY,employeeName,employeeId,payRate,ytdEarnings,ytdTaxesPaid,pretaxDeductions);
     }
 

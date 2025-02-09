@@ -1,21 +1,27 @@
 package student;
 
-public class TimeCard implements ITimeCard{
+public class TimeCard implements ITimeCard {
 
-    private String employee_id;
-    private double hours_worked; 
+    /**
+     * employeeId
+     */
+    private String employeeId;
+    /**
+     * hoursWorked
+     */
+    private double hoursWorked; 
 
     /**
      * Create a TimeCard object.
-     * @param employee_id employee id should be a string
-     * @param hours_worked hours worked should be a positive number
+     * @param employeeId employee id should be a string
+     * @param hoursWorked hours worked should be a positive number
      */
-    public TimeCard(String employee_id, double hours_worked) {
+    public TimeCard(String employeeId, double hoursWorked) {
 
         // check String inputs.
-        checkStringValue(employee_id, "Employee id");
-        this.employee_id = employee_id;
-        this.hours_worked = hours_worked;
+        checkStringValue(employeeId, "Employee id");
+        this.employeeId = employeeId;
+        this.hoursWorked = hoursWorked;
     } 
 
     /**
@@ -36,7 +42,7 @@ public class TimeCard implements ITimeCard{
      * @return the employee ID
      */
     public String getEmployeeID() {
-        return this.employee_id;
+        return this.employeeId;
     }
 
     /**
@@ -44,6 +50,6 @@ public class TimeCard implements ITimeCard{
      * @return the hours worked by the employee
      */    
     public double getHoursWorked() {
-        return this.hours_worked;
+        return this.hoursWorked;
     }
 }

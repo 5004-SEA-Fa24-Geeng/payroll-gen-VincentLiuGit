@@ -4,16 +4,37 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 public abstract class AbstractEmployee implements IEmployee {
+    /**
+     * employeeType
+     */
     private TypeOfEmployee employeeType;
+    /**
+     * employeeName
+     */    
     private String employeeName;
+    /**
+     * employeeId
+     */    
     private String employeeId;
+    /**
+     * payRate
+     */    
     private double payRate;
+    /**
+     * ytdEarnings
+     */    
     private double ytdEarnings;
+    /**
+     * ytdTaxesPaid
+     */    
     private double ytdTaxesPaid;
+    /**
+     * pretaxDeductions
+     */    
     private double pretaxDeductions;
 
     /**
-     * Create an employee object.
+     * Create an AbstractEmployee object.
      * @param employeeType employee type
      * @param employeeName employee name
      * @param employeeId employee id
@@ -188,8 +209,8 @@ public abstract class AbstractEmployee implements IEmployee {
         this.ytdEarnings = roundValue(this.ytdEarnings + netPay);    
         this.ytdTaxesPaid = roundValue(this.ytdTaxesPaid + taxes);  
 
-        PayStub PayStub = new PayStub(this, netPay, taxes);
-        return PayStub;
+        PayStub payStub = new PayStub(this, netPay, taxes);
+        return payStub;
     };
 
     /**
@@ -203,9 +224,9 @@ public abstract class AbstractEmployee implements IEmployee {
     public String toCSV() {
         String csvString;
         csvString = String.format("%s,%s,%s,%.2f,%.2f,%.2f,%.2f"
-                                , this.employeeType, this.employeeName
-                                , this.employeeId, this.payRate
-                                , this.pretaxDeductions, this.ytdEarnings, this.ytdTaxesPaid);
+                                ,this.employeeType,this.employeeName
+                                ,this.employeeId,this.payRate
+                                ,this.pretaxDeductions,this.ytdEarnings,this.ytdTaxesPaid);
         return csvString;
     };    
     
