@@ -3,11 +3,11 @@ package student;
 public class TimeCard implements ITimeCard {
 
     /**
-     * employeeId
+     * employeeId.
      */
     private String employeeId;
     /**
-     * hoursWorked
+     * hoursWorked.
      */
     private double hoursWorked; 
 
