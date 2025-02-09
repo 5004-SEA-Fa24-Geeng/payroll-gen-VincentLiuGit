@@ -3,15 +3,15 @@ package student;
 
 public class PayStub implements IPayStub {
     /**
-     * employee
+     * employee.
      */
     private IEmployee employee;
     /**
-     * netPay
+     * netPay.
      */
     private double netPay;
     /**
-     * taxes
+     * taxes.
      */
     private double taxes;
 
@@ -22,7 +22,7 @@ public class PayStub implements IPayStub {
      * @param netPay net pay = grossPay - pretax_deductions - taxes
      * @param taxes taxes = (grossPay - pretax_deductions) * totalPercentage
      */
-    public PayStub(IEmployee employee,double netPay,double taxes) {
+    public PayStub(IEmployee employee, double netPay, double taxes) {
         this.employee = employee;
         this.netPay = netPay;        
         this.taxes = taxes;
@@ -51,9 +51,7 @@ public class PayStub implements IPayStub {
      */    
     public String toCSV() {
         String csvString;
-        csvString = String.format("%s,%.2f,%.2f,%.2f,%.2f"
-                                ,this.employee.getName(),this.netPay
-                                ,this.taxes,this.employee.getYTDEarnings(),this.employee.getYTDTaxesPaid());
+        csvString = String.format("%s,%.2f,%.2f,%.2f,%.2f", this.employee.getName(), this.netPay, this.taxes, this.employee.getYTDEarnings(), this.employee.getYTDTaxesPaid());
         return csvString;
     }
 }

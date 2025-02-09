@@ -3,7 +3,7 @@ package student;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-public class HourlyEmployee extends AbstractEmployee{
+public class HourlyEmployee extends AbstractEmployee {
 
     /**
      * create a HourlyEmployee object.
@@ -14,9 +14,8 @@ public class HourlyEmployee extends AbstractEmployee{
      * @param ytdTaxesPaid ytdTaxesPaid
      * @param pretaxDeductions pretaxDeductions
      */
-    public HourlyEmployee(String employeeName,String employeeId,double payRate
-                        ,double ytdEarnings,double ytdTaxesPaid,double pretaxDeductions) {
-        super(TypeOfEmployee.HOURLY,employeeName,employeeId,payRate,ytdEarnings,ytdTaxesPaid,pretaxDeductions);
+    public HourlyEmployee(String employeeName, String employeeId, double payRate, double ytdEarnings, double ytdTaxesPaid, double pretaxDeductions) {
+        super(TypeOfEmployee.HOURLY, employeeName, employeeId, payRate, ytdEarnings, ytdTaxesPaid, pretaxDeductions);
     }
 
     @Override

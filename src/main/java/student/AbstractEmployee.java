@@ -5,31 +5,31 @@ import java.math.RoundingMode;
 
 public abstract class AbstractEmployee implements IEmployee {
     /**
-     * employeeType
+     * employeeType.
      */
     private TypeOfEmployee employeeType;
     /**
-     * employeeName
+     * employeeName.
      */    
     private String employeeName;
     /**
-     * employeeId
+     * employeeId.
      */    
     private String employeeId;
     /**
-     * payRate
+     * payRate.
      */    
     private double payRate;
     /**
-     * ytdEarnings
+     * ytdEarnings.
      */    
     private double ytdEarnings;
     /**
-     * ytdTaxesPaid
+     * ytdTaxesPaid.
      */    
     private double ytdTaxesPaid;
     /**
-     * pretaxDeductions
+     * pretaxDeductions.
      */    
     private double pretaxDeductions;
 
@@ -43,8 +43,7 @@ public abstract class AbstractEmployee implements IEmployee {
      * @param ytdTaxesPaid ytd taxes paid
      * @param pretaxDeductions pretax deductions
      */
-    public AbstractEmployee(TypeOfEmployee employeeType,String employeeName,String employeeId,double payRate
-                        ,double ytdEarnings,double ytdTaxesPaid,double pretaxDeductions) {
+    public AbstractEmployee(TypeOfEmployee employeeType, String employeeName, String employeeId, double payRate, double ytdEarnings, double ytdTaxesPaid, double pretaxDeductions) {
 
         // check String inputs.
         checkStringValue(employeeName, "Employee name");
@@ -165,7 +164,7 @@ public abstract class AbstractEmployee implements IEmployee {
      * @param val the double number that needs to be rounded to two decimal places.
      * @return rounded double number
      */
-    public double roundValue (double val) {
+    public double roundValue(double val) {
         BigDecimal bd = new BigDecimal(val).setScale(2, RoundingMode.HALF_UP);
         val = bd.doubleValue();
         return val;
@@ -223,10 +222,7 @@ public abstract class AbstractEmployee implements IEmployee {
      */
     public String toCSV() {
         String csvString;
-        csvString = String.format("%s,%s,%s,%.2f,%.2f,%.2f,%.2f"
-                                ,this.employeeType,this.employeeName
-                                ,this.employeeId,this.payRate
-                                ,this.pretaxDeductions,this.ytdEarnings,this.ytdTaxesPaid);
+        csvString = String.format("%s,%s,%s,%.2f,%.2f,%.2f,%.2f", this.employeeType, this.employeeName, this.employeeId, this.payRate, this.pretaxDeductions, this.ytdEarnings, this.ytdTaxesPaid);
         return csvString;
     };    
     

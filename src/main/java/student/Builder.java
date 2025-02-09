@@ -77,9 +77,9 @@ public final class Builder {
         double yTDTaxesPaid = checkValue(stringYTDTaxesPaid, "YTDTaxesPaid");
 
         if (stringeType.equals("HOURLY")) {
-            employee = new HourlyEmployee(stringName,stringId,payRate,yTDEarnings,yTDTaxesPaid,pretaxDeductions);
+            employee = new HourlyEmployee(stringName, stringId, payRate, yTDEarnings, yTDTaxesPaid, pretaxDeductions);
         } else if (stringeType.equals("SALARY")) {
-            employee = new SalaryEmployee(stringName,stringId,payRate,yTDEarnings,yTDTaxesPaid,pretaxDeductions);
+            employee = new SalaryEmployee(stringName, stringId, payRate, yTDEarnings, yTDTaxesPaid, pretaxDeductions);
         }
 
         return employee;
