@@ -186,13 +186,10 @@ public abstract class AbstractEmployee implements IEmployee{
         double netPay = grossPay - this.pretax_deductions - taxes;
         netPay = roundValue(netPay);    
 
-        double newYtdEarnings = this.ytd_earnings + netPay;
-        newYtdEarnings = roundValue(newYtdEarnings);       
+        this.ytd_earnings = roundValue(this.ytd_earnings + netPay);    
+        this.ytd_taxes_paid = roundValue(this.ytd_taxes_paid + taxes);  
 
-        double newYtdTaxesPaid = this.ytd_taxes_paid  + taxes;
-        newYtdTaxesPaid = roundValue(newYtdTaxesPaid);    
-
-        PayStub PayStub = new PayStub(this, netPay, taxes, newYtdEarnings, newYtdTaxesPaid);
+        PayStub PayStub = new PayStub(this, netPay, taxes);
         return PayStub;
     };
 

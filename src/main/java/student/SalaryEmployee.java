@@ -13,7 +13,7 @@ public class SalaryEmployee extends AbstractEmployee{
     @Override
     public double calculateGrossPay(double hoursWorked) {
         double rounded = 0;
-        if (hoursWorked > 0) {
+        if (hoursWorked >= 0) {
             double grossPay = 0;
             grossPay = this.pay_rate / 24;
             BigDecimal bd = new BigDecimal(grossPay).setScale(2, RoundingMode.HALF_UP);

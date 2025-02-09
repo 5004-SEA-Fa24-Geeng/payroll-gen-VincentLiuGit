@@ -29,8 +29,8 @@ public class TestPayStub {
         TestSalaryEmployee = new SalaryEmployee("Nami", "s193"
                                                 , 200000.00, 17017.00
                                                 , 4983.00, 1000.00);  
-        TestHourlyPayStub = new PayStub(TestHourlyEmployee, 928.2, 271.8, 20928.20, 4801.80);
-        TestSalaryPayStub = new PayStub(TestSalaryEmployee, 12118.17, 3548.50, 29135.17, 8531.50);  
+        TestHourlyPayStub = new PayStub(TestHourlyEmployee, 1102.24, 322.76);
+        TestSalaryPayStub = new PayStub(TestSalaryEmployee, 5672.33, 1661.00);  
     }
 
     /**
@@ -38,8 +38,8 @@ public class TestPayStub {
      */
     @Test
     public void testGetPay() {
-        assertEquals(928.2, TestHourlyPayStub.getPay());
-        assertEquals(12118.17, TestSalaryPayStub.getPay());
+        assertEquals(1102.24, TestHourlyPayStub.getPay());
+        assertEquals(5672.33, TestSalaryPayStub.getPay());
     }  
 
     /**
@@ -47,27 +47,9 @@ public class TestPayStub {
      */
     @Test
     public void testGetTaxesPaid() {
-        assertEquals(271.8, TestHourlyPayStub.getTaxesPaid());
-        assertEquals(3548.50, TestSalaryPayStub.getTaxesPaid());
-    }   
-
-    /**
-     * Tests to make sure the new ytd earnings is being returned properly.
-     */
-    @Test
-    public void testGetNewYtdEarnings() {
-        assertEquals(20928.20, TestHourlyPayStub.getNewYtdEarnings());
-        assertEquals(29135.17, TestSalaryPayStub.getNewYtdEarnings());
-    }       
-    
-    /**
-     * Tests to make sure the new ytd taxes paid is being returned properly.
-     */
-    @Test
-    public void testGetNewYtdTaxesPaid() {
-        assertEquals(4801.80, TestHourlyPayStub.getNewYtdTaxesPaid());
-        assertEquals(8531.50, TestSalaryPayStub.getNewYtdTaxesPaid());
-    }        
+        assertEquals(322.76, TestHourlyPayStub.getTaxesPaid());
+        assertEquals(1661.0, TestSalaryPayStub.getTaxesPaid());
+    }         
 
     /**
      * Tests to make sure the CSV string is being returned properly.
@@ -75,7 +57,7 @@ public class TestPayStub {
      */
     @Test
     public void testToCSV() {
-        assertEquals("Luffy,928.20,271.80,20928.20,4801.80", TestHourlyPayStub.toCSV());
-        assertEquals("Nami,12118.17,3548.50,29135.17,8531.50", TestSalaryPayStub.toCSV());
+        assertEquals("Luffy,1102.24,322.76,20000.00,4530.00", TestHourlyPayStub.toCSV());
+        assertEquals("Nami,5672.33,1661.00,17017.00,4983.00", TestSalaryPayStub.toCSV());
     }        
 }

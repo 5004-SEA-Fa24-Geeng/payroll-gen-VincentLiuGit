@@ -6,8 +6,6 @@ public class PayStub implements IPayStub {
     private IEmployee employee;
     private double netPay;
     private double taxes;
-    private double newYtdEarnings;
-    private double newYtdTaxesPaid;
 
 
     /**
@@ -15,16 +13,11 @@ public class PayStub implements IPayStub {
      * @param employee employee object
      * @param netPay net pay = grossPay - pretax_deductions - taxes
      * @param taxes taxes = (grossPay - pretax_deductions) * totalPercentage
-     * @param newYtdEarnings new Ytd Earnings = ytd_earnings + netPay
-     * @param newYtdTaxesPaid new Ytd TaxesPaid = ytd_taxes_paid  + taxes
      */
-    public PayStub(IEmployee employee, double netPay, double taxes
-                    , double newYtdEarnings, double newYtdTaxesPaid) {
+    public PayStub(IEmployee employee, double netPay, double taxes) {
         this.employee = employee;
         this.netPay = netPay;        
         this.taxes = taxes;
-        this.newYtdEarnings = newYtdEarnings;        
-        this.newYtdTaxesPaid = newYtdTaxesPaid;
     }
 
     /**
@@ -44,22 +37,6 @@ public class PayStub implements IPayStub {
     }
 
     /**
-     * Gets the new YtdEarnings.
-     * @return the new YtdEarnings
-     */    
-    public double getNewYtdEarnings() {  
-        return this.newYtdEarnings;
-    }
-
-    /**
-     * Gets the new YtdTaxesPaid.
-     * @return the new YtdTaxesPaid
-     */    
-    public double getNewYtdTaxesPaid() {  
-        return this.newYtdTaxesPaid;
-    }
-
-    /**
      * Converts the PayStub object to a CSV string.
      * Format of the CSV string is: "employee_name,net_pay,taxes,ytd_earnings,ytd_taxes_paid"
      * @return the CSV string
@@ -68,7 +45,7 @@ public class PayStub implements IPayStub {
         String csvString;
         csvString = String.format("%s,%.2f,%.2f,%.2f,%.2f"
                                 , this.employee.getName(), this.netPay
-                                , this.taxes, this.newYtdEarnings, this.newYtdTaxesPaid);
+                                , this.taxes, this.employee.getYTDEarnings(), this.employee.getYTDTaxesPaid());
         return csvString;
     }
 }

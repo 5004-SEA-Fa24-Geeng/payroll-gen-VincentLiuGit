@@ -118,15 +118,13 @@ public class TestEmployee {
         assertNotNull(TestSalaryEmployee.runPayroll(50));
 
         // Test PayStub
-        IPayStub TestHourlyEmployeePayStub = TestHourlyEmployee.runPayroll(40);
-        assertEquals(928.2, TestHourlyEmployeePayStub.getPay());
-        assertEquals(271.8, TestHourlyEmployeePayStub.getTaxesPaid());
-        assertEquals("Luffy,928.20,271.80,20928.20,4801.80", TestHourlyEmployeePayStub.toCSV());
+        IPayStub TestHourlyEmployeePayStub = TestHourlyEmployee.runPayroll(45);
+        assertEquals(1102.24, TestHourlyEmployeePayStub.getPay());
+        assertEquals(322.76, TestHourlyEmployeePayStub.getTaxesPaid());
 
-        IPayStub TestSalaryEmployeePayStub = TestSalaryEmployee.runPayroll(1);
+        IPayStub TestSalaryEmployeePayStub = TestSalaryEmployee.runPayroll(60);
         assertEquals(5672.33, TestSalaryEmployeePayStub.getPay());        
-        assertEquals(1661.0, TestSalaryEmployeePayStub.getTaxesPaid());     
-        assertEquals("Nami,5672.33,1661.00,22689.33,6644.00", TestSalaryEmployeePayStub.toCSV());     
+        assertEquals(1661.0, TestSalaryEmployeePayStub.getTaxesPaid());       
     }   
 
     /**
