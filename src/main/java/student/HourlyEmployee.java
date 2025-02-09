@@ -5,9 +5,9 @@ import java.math.RoundingMode;
 
 public class HourlyEmployee extends AbstractEmployee{
 
-    public HourlyEmployee(String employee_type, String employee_name, String employee_id, double pay_rate
+    public HourlyEmployee(String employee_name, String employee_id, double pay_rate
                         , double ytd_earnings, double ytd_taxes_paid, double pretax_deductions) {
-        super(employee_type, employee_name, employee_id, pay_rate, ytd_earnings, ytd_taxes_paid, pretax_deductions);
+        super(TypeOfEmployee.HOURLY, employee_name, employee_id, pay_rate, ytd_earnings, ytd_taxes_paid, pretax_deductions);
     }
 
     @Override

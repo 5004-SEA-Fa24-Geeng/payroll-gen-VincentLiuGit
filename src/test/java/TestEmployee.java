@@ -22,10 +22,12 @@ public class TestEmployee {
      */
     @BeforeEach
     public void setUp() {
-        TestHourlyEmployee = new HourlyEmployee("HOURLY", "Luffy"
-                                            , "s192", 30.00, 20000.00, 4530.00, 0.00);
-        TestSalaryEmployee = new SalaryEmployee("SALARY", "Nami"
-                                            , "s193", 200000.00, 17017.00, 4983.00, 1000.00);  
+        TestHourlyEmployee = new HourlyEmployee("Luffy", "s192"
+                                                , 30.00, 20000.00
+                                                , 4530.00, 0.00);
+        TestSalaryEmployee = new SalaryEmployee("Nami", "s193"
+                                                , 200000.00, 17017.00
+                                                , 4983.00, 1000.00);  
     }
 
     /**
@@ -122,9 +124,9 @@ public class TestEmployee {
         assertEquals("Luffy,928.20,271.80,20928.20,4801.80", TestHourlyEmployeePayStub.toCSV());
 
         IPayStub TestSalaryEmployeePayStub = TestSalaryEmployee.runPayroll(1);
-        assertEquals(12118.17, TestSalaryEmployeePayStub.getPay());        
-        assertEquals(3548.5, TestSalaryEmployeePayStub.getTaxesPaid());     
-        assertEquals("Nami,12118.17,3548.50,29135.17,8531.50", TestSalaryEmployeePayStub.toCSV());     
+        assertEquals(5672.33, TestSalaryEmployeePayStub.getPay());        
+        assertEquals(1661.0, TestSalaryEmployeePayStub.getTaxesPaid());     
+        assertEquals("Nami,5672.33,1661.00,22689.33,6644.00", TestSalaryEmployeePayStub.toCSV());     
     }   
 
     /**
@@ -134,7 +136,7 @@ public class TestEmployee {
     public void testCalculateGrossPay() {
         assertEquals(1200.00, TestHourlyEmployee.calculateGrossPay(40));
         assertEquals(0.00, TestHourlyEmployee.calculateGrossPay(-1));        
-        assertEquals(16666.67, TestSalaryEmployee.calculateGrossPay(1));        
+        assertEquals(8333.33, TestSalaryEmployee.calculateGrossPay(1));        
     }   
 
     /**

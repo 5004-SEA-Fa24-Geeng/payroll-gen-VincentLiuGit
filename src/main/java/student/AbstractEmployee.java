@@ -5,7 +5,7 @@ import java.math.RoundingMode;
 
 public abstract class AbstractEmployee implements IEmployee{
 
-    protected String employee_type;
+    protected TypeOfEmployee employee_type;
     protected String employee_name;
     protected String employee_id;
     protected double pay_rate;
@@ -23,11 +23,10 @@ public abstract class AbstractEmployee implements IEmployee{
      * @param ytd_taxes_paid ytd taxes paid
      * @param pretax_deductions pretax deductions
      */
-    public AbstractEmployee(String employee_type, String employee_name, String employee_id, double pay_rate
+    public AbstractEmployee(TypeOfEmployee employee_type, String employee_name, String employee_id, double pay_rate
                         , double ytd_earnings, double ytd_taxes_paid, double pretax_deductions) {
 
         // check String inputs.
-        checkStringValue(employee_type, "Employee type");
         checkStringValue(employee_name, "Employee name");
         checkStringValue(employee_id, "Employee id");
         // check double inputs.
@@ -105,13 +104,7 @@ public abstract class AbstractEmployee implements IEmployee{
      * @return the type of the employee as a string
      */
     public String getEmployeeType() {
-        String typeStirng = null;
-        if ("HOURLY".equals(this.employee_type)) {
-            typeStirng = TypeOfEmployee.HOURLY.name();
-        } else if ("SALARY".equals(this.employee_type)) {
-            typeStirng = TypeOfEmployee.SALARY.name();         
-        }
-        return typeStirng;
+        return this.employee_type.name();
     };
 
     /**

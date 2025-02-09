@@ -76,11 +76,11 @@ public final class Builder {
         double YTDTaxesPaid = checkValue(StringYTDTaxesPaid, "YTDTaxesPaid");
 
         if (StringeType.equals("HOURLY")) {
-            Employee = new HourlyEmployee(StringeType, StringName, StringId
-                                            , payRate, YTDEarnings, YTDTaxesPaid, pretaxDeductions);
+            Employee = new HourlyEmployee(StringName, StringId
+                                        , payRate, YTDEarnings, YTDTaxesPaid, pretaxDeductions);
         } else if (StringeType.equals("SALARY")) {
-            Employee = new SalaryEmployee(StringeType, StringName, StringId
-                                            , payRate, YTDEarnings, YTDTaxesPaid, pretaxDeductions);
+            Employee = new SalaryEmployee(StringName, StringId
+                                        , payRate, YTDEarnings, YTDTaxesPaid, pretaxDeductions);
         }
 
         return Employee;

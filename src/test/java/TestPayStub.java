@@ -23,10 +23,12 @@ public class TestPayStub {
      */
     @BeforeEach
     public void setUp() {
-        TestHourlyEmployee = new HourlyEmployee("HOURLY", "Luffy"
-                                            , "s192", 30.00, 20000.00, 4530.00, 0.00);
-        TestSalaryEmployee = new SalaryEmployee("SALARY", "Nami"
-                                            , "s193", 200000.00, 17017.00, 4983.00, 1000.00);  
+        TestHourlyEmployee = new HourlyEmployee("Luffy", "s192"
+                                                , 30.00, 20000.00
+                                                , 4530.00, 0.00);
+        TestSalaryEmployee = new SalaryEmployee("Nami", "s193"
+                                                , 200000.00, 17017.00
+                                                , 4983.00, 1000.00);  
         TestHourlyPayStub = new PayStub(TestHourlyEmployee, 928.2, 271.8, 20928.20, 4801.80);
         TestSalaryPayStub = new PayStub(TestSalaryEmployee, 12118.17, 3548.50, 29135.17, 8531.50);  
     }
