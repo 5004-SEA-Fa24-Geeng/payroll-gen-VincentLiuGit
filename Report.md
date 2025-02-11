@@ -55,3 +55,12 @@ Having heard these facts, your employer would like data about their salaries to 
 Think through the issue / making sure to cite any resources you use to help you better understand the topic. Then write a paragraph on what changes you would need to make to the system. For example, would there be any additional data points you would need to store in the employee file? Why? Consider what point in the payroll process you may want to look at the data, as different people could have different pretax benefits and highlight that. 
 
 The answer to this is mostly open. We ask that you cite at least two sources to show your understanding of the issue. The TAs will also give feedback on your answer, though will be liberal in grading as long as you show a good faith effort to understand the issue and making an effort to think about how your design to could help meet your employer's goals of salary equity. 
+
+
+According to the Stanford report[^1] provided in the passage above, self-confidence might be the reason why women is paid less than men in entry level positions. And another reason why women is paid less than men might be that women tend not to negotiate a higher salary.[^2] Therefore, what we can do to fix this problem is that we can add a performance point to the employee file and make the base salary align if two employee both have the same position or title. But what's a performance point? A performance point is a way to view your performance and it's given to you by your colleagues. If you perform well in porjects and show your leadership skill more often, your colleagues might give you points. And the more you get, the more confident you will become. Make the base salary align in same position is critical too. This might fix the problem that women tend not to negotiate a higher salary and erase the salary gap. I beleive that implementing these two method would help erasing the salary gap, and we should use them in the runPayroll method in the AbstractEmployee class. First, make sure the base salary is aligned in same position, then compare the performance point between every employee and give them the corresponding amount of salary. After doing this, we then calculate the net pay and taxes. Last, we generate the pay stub.
+
+
+
+
+[^1]: https://www.gsb.stanford.edu/insights/whats-behind-pay-gap-stem-jobs
+[^2]: https://ravio.com/blog/3-reasons-why-there-is-a-gender-pay-gap
